@@ -13,7 +13,9 @@ export default function Header() {
                 <Link to="/about">
                     <Button>О проекте</Button>
                 </Link>
-                <Button className="signup" onClick={""}>Войти</Button>
+                <Link to="/profile">
+                <Button className="signup">Войти</Button>
+                    </Link>
             </div>
         </header>
     );

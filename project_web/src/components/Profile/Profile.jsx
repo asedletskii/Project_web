@@ -13,10 +13,10 @@ const Profile = () => {
             items: [
                 {
                     id: 1,
-                    name: "Товар 1",
-                    marketplace: "маркетплейс",
+                    name: "Большой плюшевый мишка \"Нестор\" белый, 80 см",
+                    marketplace: "Ozon",
                     price: "5000 ₽",
-                    image: "/api/placeholder/400/320"
+                    image: "https://ir.ozone.ru/s3/multimedia-1-1/wc1000/7308125425.jpg"
                 },
                 {
                     id: 2,
@@ -61,10 +61,8 @@ const Profile = () => {
     const [showModal, setShowModal] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
-    // Find the active list
     const activeList = lists.find(list => list.id === activeListId) || lists[0];
 
-    // Function to create a new list
     const createNewList = () => {
         const newList = {
             id: Date.now(),
@@ -76,7 +74,6 @@ const Profile = () => {
         setActiveListId(newList.id);
     };
 
-    // Function to delete a list
     const deleteList = (listId) => {
         const updatedLists = lists.filter(list => list.id !== listId);
         setLists(updatedLists);
@@ -85,7 +82,6 @@ const Profile = () => {
         }
     };
 
-    // Function to add a new item to the active list
     const addNewItem = () => {
         const newItem = {
             id: Date.now(),
@@ -109,7 +105,6 @@ const Profile = () => {
         setLists(updatedLists);
     };
 
-    // Function to delete an item
     const deleteItem = (itemId) => {
         const updatedLists = lists.map(list => {
             if (list.id === activeListId) {
@@ -127,7 +122,6 @@ const Profile = () => {
         setShowModal(false);
     };
 
-    // Open modal with item details
     const openItemModal = (item) => {
         setSelectedItem(item);
         setShowModal(true);
@@ -137,14 +131,13 @@ const Profile = () => {
         <div className="profile-container">
             <div className="profile-header">
                 <div className="profile-info">
-                    <div className="profile-avatar"></div>
+                    <div className="profile-avatar">
+                        <img src="https://mooc.tyuiu.ru/theme/image.php/moove/theme/1699858668/mooc/defaultperson" alt="фото профиля"/>
+                    </div>
                     <div className="profile-details">
                         <h2>Мой профиль</h2>
                         <p className="profile-stat">Кол-во списков: {lists.length}</p>
                     </div>
-                </div>
-                <div className="profile-actions">
-                    <Button>Мои списки желаний</Button>
                 </div>
             </div>
 
@@ -155,13 +148,21 @@ const Profile = () => {
                             key={list.id}
                             className={`list-tab ${activeListId === list.id ? 'active' : ''}`}
                             onClick={() => setActiveListId(list.id)}
+                            style={{ position: 'relative' }}
                         >
                             <h3>{list.name}</h3>
                             <p>кол-во товаров в списке: {list.itemCount}</p>
                             {activeListId === list.id && (
-                                <button onClick={() => deleteList(list.id)} className="delete-list-btn">
-                                    Удалить список
-                                </button>
+                                <span
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        deleteList(list.id);
+                                    }}
+                                    className="delete-list-btn"
+                                    style={{ cursor: 'pointer', position: 'absolute', right: '10px', top: '10px', fontSize: '18px' }}
+                                >
+                                    ✖
+                                </span>
                             )}
                         </div>
                     ))}
@@ -172,7 +173,21 @@ const Profile = () => {
 
                 <div className="list-content">
                     <div className="list-actions">
-                        <Button onClick={addNewItem}>Добавить товар</Button>
+                        <button
+                            onClick={addNewItem}
+                            style={{
+                                font: "Roboto",
+                                padding: '10px 15px',
+                                backgroundColor: 'black',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '20px',
+                                cursor: 'pointer',
+                                fontSize: '16px'
+                            }}
+                        >
+                            Добавить товар
+                        </button>
                     </div>
 
                     {activeList && activeList.items.length > 0 ? (
@@ -193,7 +208,6 @@ const Profile = () => {
                     ) : (
                         <div className="empty-list">
                             <p>В этом списке пока нет товаров</p>
-                            <Button onClick={addNewItem}>Добавить товар</Button>
                         </div>
                     )}
                 </div>

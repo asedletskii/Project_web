@@ -6,31 +6,31 @@ import React from "react";
 const About = () => {
         const teamMembers = [
             {
-                photo: 'https://i.pinimg.com/originals/c7/11/15/c7111512016083ed6afd260e4ccbc6fd.jpg', // URL фото участника
+                photo: 'https://mooc.tyuiu.ru/theme/image.php/moove/theme/1699858668/mooc/defaultperson', // URL фото участника
                 name: 'Седлецкий Антон',
                 role: 'Frontend Developer',
                 link: '/about/anton', // путь на карточку указывть через router в app.js
             },
             {
-                photo: 'https://i.pinimg.com/originals/c7/11/15/c7111512016083ed6afd260e4ccbc6fd.jpg',
+                photo: 'https://mooc.tyuiu.ru/theme/image.php/moove/theme/1699858668/mooc/defaultperson',
                 name: 'Костерин Дмитрий',
                 role: 'Backend Developer',
                 link: '/about/dmitry',
             },
             {
-                photo: 'https://i.pinimg.com/originals/c7/11/15/c7111512016083ed6afd260e4ccbc6fd.jpg',
+                photo: 'https://mooc.tyuiu.ru/theme/image.php/moove/theme/1699858668/mooc/defaultperson',
                 name: 'Дёмочкин Владислав',
                 role: 'UX/UI Designer',
                 link: '/about/vladislav',
             },
             {
-                photo: 'https://i.pinimg.com/originals/c7/11/15/c7111512016083ed6afd260e4ccbc6fd.jpg',
+                photo: 'https://mooc.tyuiu.ru/theme/image.php/moove/theme/1699858668/mooc/defaultperson',
                 name: 'Базулин Илья',
                 role: 'Project Manager',
                 link: '/about/ilya',
             },
             {
-                photo: 'https://i.pinimg.com/originals/c7/11/15/c7111512016083ed6afd260e4ccbc6fd.jpg',
+                photo: 'https://mooc.tyuiu.ru/theme/image.php/moove/theme/1699858668/mooc/defaultperson',
                 name: 'Молодов Виталий',
                 role: 'Project Manager',
                 link: '/about/vitaliy',

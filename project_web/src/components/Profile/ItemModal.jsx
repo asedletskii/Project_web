@@ -5,7 +5,6 @@ import Button from '../Button/Button';
 const ItemModal = ({ item, onClose, onDelete }) => {
     const [analyzeLoading, setAnalyzeLoading] = useState(false);
 
-    // Mock function to simulate finding alternatives
     const findAlternatives = () => {
         setAnalyzeLoading(true);
         // Simulating API call delay
